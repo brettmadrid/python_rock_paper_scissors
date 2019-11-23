@@ -1,5 +1,6 @@
 import random
 
+
 # file i/o function for historical results
 def load_results():
     text_file = open("history.txt", "r")
@@ -13,23 +14,23 @@ def save_results(w, t, l):
     text_file.write(w + "," + t + "," + l)
     text_file.close()
 
+
 # welcome message
 results = load_results()
-wins = 0 # int(results[0])
-ties = 0 # int(results[1])
-losses = 0 # int(results[2])
+wins = 0  # int(results[0])
+ties = 0  # int(results[1])
+losses = 0  # int(results[2])
 print("Welcome to Rock, Paper, Scissors!")
 print("Wins: %s, Ties: %s, Losses: %s" % (wins, ties, losses))
 print("Please choose to continue....")
-
 
 # initialize user, computer choices
 computer = random.randint(1, 3)
 user = int(input("[1] Rock [2] Paper [3] Scissors [9] Quit\n"))
 
-#gameplay loop
+# gameplay loop
 while not user == 9:
-    #user chooses ROCK
+    # user chooses ROCK
     if user == 1:
         if computer == 1:
             print("Computer chose rock...tie!")
@@ -78,4 +79,3 @@ while not user == 9:
 
 # game over, save results
 # save_results(wins, ties, losses)
-
