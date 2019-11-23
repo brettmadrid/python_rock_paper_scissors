@@ -11,22 +11,22 @@ def load_results():
 
 def save_results(w, t, l):
     text_file = open('history.txt', 'w')
-    text_file.write(w + "," + t + "," + l)
+    text_file.write(str(w) + "," + str(t) + "," + str(l))
     text_file.close()
 
 
 # welcome message
 results = load_results()
-wins = 0  # int(results[0])
-ties = 0  # int(results[1])
-losses = 0  # int(results[2])
+wins = int(results[0])
+ties = int(results[1])
+losses = int(results[2])
 print("Welcome to Rock, Paper, Scissors!")
 print("Wins: %s, Ties: %s, Losses: %s" % (wins, ties, losses))
 print("Please choose to continue....")
 
 # initialize user, computer choices
 computer = random.randint(1, 3)
-user = int(input("[1] Rock [2] Paper [3] Scissors [9] Quit\n"))
+user = int(input("[1] Rock [2] Paper [3] Scissors [9] Quit\r\n"))
 
 # gameplay loop
 while not user == 9:
@@ -65,9 +65,9 @@ while not user == 9:
         elif computer == 3:
             print("Computer chose scissors...tie!")
             ties += 1
-
-    # user enters an invalid choice
-    print("Invalid selection. Please try again...")
+    else:
+        # user enters an invalid choice
+        print("Invalid selection. Please try again...")
 
     # print updated stats
     print(f'Wins: {wins}, Ties: {ties}, Losses: {losses}')
@@ -78,4 +78,4 @@ while not user == 9:
     user = int(input("[1] Rock [2] Paper [3] Scissors [9] Quit\n"))
 
 # game over, save results
-# save_results(wins, ties, losses)
+save_results(wins, ties, losses)
